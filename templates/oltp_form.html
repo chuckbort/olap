@@ -1,0 +1,29 @@
+<!-- templates/oltp_form.html -->
+{% extends "layout.html" %}
+{% block content %}
+{% if mode == 'new' %}
+  <h2>Додати запис у {{ table_name }}</h2>
+{% else %}
+  <h2>Редагувати запис у {{ table_name }}</h2>
+{% endif %}
+
+<form method="POST">
+  {% for col in columns %}
+  <div class="mb-3">
+    <label for="{{ col }}" class="form-label">{{ col }}:</label>
+    <input
+      type="text"
+      class="form-control"
+      name="{{ col }}"
+      id="{{ col }}"
+      value="{% if record %}{{ record[col] }}{% endif %}"
+    />
+  </div>
+  {% endfor %}
+
+  <button type="submit" class="btn btn-primary">
+    {% if mode == 'new' %}Створити{% else %}Зберегти{% endif %}
+  </button>
+  <a class="btn btn-secondary" href="{{ url_for('show_table', table_name=table_name) }}">Відміна</a>
+</form>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Тарас Каюк, 1БІ</h1>
+<p>Інформаційні системи та технології</p>
+
+<div class="mt-3">
+  <img
+    src="{{ url_for('static', filename='images/my_photo.jpg') }}"
+    alt="Фото автора"
+    class="img-thumbnail"
+    style="max-width: 300px;"
+  />
+</div>
+
+<div class="mt-4">
+  <a class="btn btn-info" href="{{ url_for('show_fact_sales') }}">
+    Переглянути FactSales (DW)
+  </a>
+  <a class="btn btn-primary" href="{{ url_for('show_table', table_name='sales') }}">
+    Переглянути Sales
+  </a>
+    <a class="btn btn-primary" href="{{ url_for('show_table', table_name='products') }}">
+    Переглянути Products
+  </a>
+    <a class="btn btn-primary" href="{{ url_for('show_table', table_name='managers') }}">
+    Переглянути Managers
+  </a>
+    <a class="btn btn-primary" href="{{ url_for('show_table', table_name='suppliers') }}">
+    Переглянути Suppliers
+  </a>
+  <a class="btn btn-warning" href="{{ url_for('run_etl') }}">
+    Запустити ETL
+  </a>
+  <a class="btn btn-success" href="{{ url_for('charts_index') }}">
+    Діаграми
+  </a>
+</div>
+{% endblock %}
+

@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>Fact Sales (DW)</h2>
+
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      {% for col in columns %}
+      <th>
+        {% set next_order = 'asc' %}
+        {% if sort_col == col and sort_order == 'asc' %}
+          {% set next_order = 'desc' %}
+          <a href="{{ url_for('show_fact_sales', sort=col, order=next_order) }}">
+            {{ col }} ▲
+          </a>
+        {% elif sort_col == col and sort_order == 'desc' %}
+          {% set next_order = 'asc' %}
+          <a href="{{ url_for('show_fact_sales', sort=col, order=next_order) }}">
+            {{ col }} ▼
+          </a>
+        {% else %}
+          <a href="{{ url_for('show_fact_sales', sort=col, order='asc') }}">
+            {{ col }}
+          </a>
+        {% endif %}
+      </th>
+      {% endfor %}
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in rows %}
+    <tr>
+      {% for col in columns %}
+      <td>{{ row[col] }}</td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

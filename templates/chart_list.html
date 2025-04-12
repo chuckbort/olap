@@ -1,0 +1,22 @@
+<!-- templates/chart_list.html -->
+{% extends "layout.html" %}
+{% block content %}
+<h2>Діаграми</h2>
+<ul class="list-group">
+  <li class="list-group-item">
+    <a href="{{ url_for('chart_line_monthly') }}" target="_blank">Лінійна діаграма (місячні продажі)</a>
+  </li>
+  <li class="list-group-item">
+    <a href="{{ url_for('chart_bar_monthly') }}" target="_blank">Стовпчикова діаграма (місячні продажі)</a>
+  </li>
+  <li class="list-group-item">
+    <a href="{{ url_for('chart_hist_quantity') }}" target="_blank">Гістограма quantity</a>
+  </li>
+  <li class="list-group-item">
+    <a href="{{ url_for('chart_pie_category') }}" target="_blank">Кругова (продажі за категоріями)</a>
+  </li>
+  <li class="list-group-item">
+    <a href="{{ url_for('chart_donut_supplier') }}" target="_blank">Donut (постачальники)</a>
+  </li>
+</ul>
+{% endblock %}
