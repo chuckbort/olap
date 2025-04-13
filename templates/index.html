@@ -1,17 +1,22 @@
 {% extends "layout.html" %}
 {% block content %}
-<h1>Тарас Каюк, 1БІ</h1>
-<p>Інформаційні системи та технології</p>
-
-<div class="mt-3">
+<div class="d-flex align-items-center">
+  <!-- ЗОБРАЖЕННЯ -->
   <img
-    src="{{ url_for('static', filename='images/my_photo.jpg') }}"
+    src="{{ url_for('static', filename='images/my_photo.jpeg') }}"
     alt="Фото автора"
-    class="img-thumbnail"
-    style="max-width: 300px;"
+    class="img-thumbnail me-4"
+    style="max-width: 150px; height: auto;"
   />
+
+  <!-- ТЕКСТ -->
+  <div>
+    <h1>Тарас Каюк, 1БІ</h1>
+    <p>Інформаційні системи та технології</p>
+  </div>
 </div>
 
+<!-- КНОПКИ -->
 <div class="mt-4">
   <a class="btn btn-info" href="{{ url_for('show_fact_sales') }}">
     Переглянути FactSales (DW)
@@ -19,13 +24,13 @@
   <a class="btn btn-primary" href="{{ url_for('show_table', table_name='sales') }}">
     Переглянути Sales
   </a>
-    <a class="btn btn-primary" href="{{ url_for('show_table', table_name='products') }}">
+  <a class="btn btn-primary" href="{{ url_for('show_table', table_name='products') }}">
     Переглянути Products
   </a>
-    <a class="btn btn-primary" href="{{ url_for('show_table', table_name='managers') }}">
+  <a class="btn btn-primary" href="{{ url_for('show_table', table_name='managers') }}">
     Переглянути Managers
   </a>
-    <a class="btn btn-primary" href="{{ url_for('show_table', table_name='suppliers') }}">
+  <a class="btn btn-primary" href="{{ url_for('show_table', table_name='suppliers') }}">
     Переглянути Suppliers
   </a>
   <a class="btn btn-warning" href="{{ url_for('run_etl') }}">
@@ -36,4 +41,3 @@
   </a>
 </div>
 {% endblock %}
-
